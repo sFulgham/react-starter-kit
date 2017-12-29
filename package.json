@@ -7,6 +7,8 @@
   "author": "Steven Fulgham",
   "license": "MIT",
   "scripts": {
+    "lint": "esw src --color",
+    "unit-test": "jest --watch --color",
     "dev-build": "nodemon --exec babel-node build/server.js",
     "webpack": "webpack -wd"
   },
@@ -18,6 +20,7 @@
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-react": "^7.5.1",
     "eslint-watch": "^3.1.3",
+    "jest": "^22.0.4",
     "nodemon": "^1.14.3"
   },
   "babel": {
