@@ -2,7 +2,7 @@ import Faker from '../../assets/jsLibs/mock.data';
 import PostsApi from './';
 
 const faker = new Faker();
-const postData = faker.getPosts();
+const postData = faker.getPosts().posts;
 const api = new PostsApi(postData);
 
 describe('Posts api', () => {

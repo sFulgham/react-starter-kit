@@ -13,7 +13,7 @@ class FakerMock {
       item.website = this.card.website;
     });
 
-    return accounts;
+    return {accounts: accounts};
   }
 
   getPosts() {
@@ -23,7 +23,7 @@ class FakerMock {
       item.id = idx;
     });
 
-    return posts;
+    return {posts: posts};
   }
 }
 

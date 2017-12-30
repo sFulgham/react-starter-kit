@@ -6,9 +6,12 @@
   <title>React Starter Kit</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="/css/main.css" rel="stylesheet" type="text/css" media="screen" />
+  <script type="text/javascript">
+    window.initialState = <%- JSON.stringify(initialState) -%>
+  </script>
 </head>
 <body>
-  <div id="root"><%- serverMount -%></div>
+  <div id="root"><%- initialDom -%></div>
   <script src="/vendor.js"></script>
   <script src="/app.js"></script>
 </body>
