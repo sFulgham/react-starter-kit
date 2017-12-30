@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AccountList renders correctly 1`] = `
+<section>
+  <article
+    className="account"
+  >
+    <h3>
+      test
+    </h3>
+    <h4>
+      Sat Dec 30 2017
+    </h4>
+    <div>
+      <a
+        href="test.com"
+      >
+        test
+      </a>
+    </div>
+    <p>
+      test paragraph
+    </p>
+  </article>
+  <article
+    className="account"
+  >
+    <h3>
+      test
+    </h3>
+    <h4>
+      Sat Dec 30 2017
+    </h4>
+    <div>
+      <a
+        href="test.com"
+      >
+        test
+      </a>
+    </div>
+    <p>
+      test paragraph
+    </p>
+  </article>
+  <article
+    className="account"
+  >
+    <h3>
+      test
+    </h3>
+    <h4>
+      Sat Dec 30 2017
+    </h4>
+    <div>
+      <a
+        href="test.com"
+      >
+        test
+      </a>
+    </div>
+    <p>
+      test paragraph
+    </p>
+  </article>
+</section>
+`;
