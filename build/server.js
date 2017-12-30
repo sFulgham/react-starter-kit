@@ -1,7 +1,7 @@
 import express from 'express';
 import config from './config';
 import chalk from 'chalk';
-import reactApp from './reactApp';
+import reactApp from '../src/mount/server';
 
 /* eslint-disable no-console */
 
@@ -10,8 +10,8 @@ const app = express();
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-  const appRender = reactApp();
-  res.render('index', {appRender});
+  const serverMount = reactApp();
+  res.render('index', {serverMount});
 });
 
 app.set('view engine', 'ejs');

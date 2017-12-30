@@ -14,7 +14,7 @@ const extractSass = new ExtractTextPlugin({
 const config = {
   resolve: {
     modules: [
-      path.resolve('./build'), 
+      path.resolve('./src'), 
       path.resolve('./node_modules')
     ]
   },
@@ -26,7 +26,7 @@ const config = {
       'prop-types',
       'axios'
     ],
-    app: ['./src/app.js']
+    app: ['mount/dom.js']
   },
   output: {
     path: path.resolve(__dirname, 'public'),

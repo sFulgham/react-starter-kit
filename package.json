@@ -9,7 +9,7 @@
   "scripts": {
     "lint": "esw src --color",
     "unit-test": "jest --watch --color",
-    "build-css": "node-sass --include-path scss src/global.scss public/css/main.css",
+    "build-css": "node-sass --include-path scss src/assets/scss/global.scss public/css/main.css",
     "dev-build": "nodemon --exec babel-node build/server.js",
     "webpack": "webpack -wd"
   },
