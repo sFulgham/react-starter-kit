@@ -1,8 +1,14 @@
 const path = require('path');
 const webpack = require('webpack');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const vendor = new webpack.optimize.CommonsChunkPlugin({
   name: 'vendor'
+});
+
+const extractSass = new ExtractTextPlugin({
+  filename: "[name].[contenthash].css",
+  disable: process.env.NODE_ENV === "development"
 });
 
 const config = {
@@ -53,7 +59,8 @@ const config = {
     }]
   },
   plugins: [
-    vendor
+    vendor,
+    extractSass
   ]
 };
 

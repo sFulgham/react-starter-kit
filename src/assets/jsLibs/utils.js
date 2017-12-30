@@ -5,3 +5,7 @@ export function convertToObj(arr) {
   }, {});
   return convertedObj;
 }
+
+export function formatDate(dateString) {
+  return new Date(dateString).toDateString();
+}
