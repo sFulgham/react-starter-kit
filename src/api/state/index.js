@@ -21,6 +21,10 @@ class StateApi {
   getState(){
     return this.data;
   }
+
+  getPostById(id){
+    return this.data.posts[id].paragraph;
+  }
 }
 
 export default StateApi;

@@ -6,18 +6,15 @@ class App extends Component {
     super(props);
 
     this.state = this.props.store.getState();
-
-    this.accountActions = {
+    this.store = this.props.store;
+    /*this.accountActions = {
       lookupPosts: accountId => this.state.posts[accountId].paragraph
-    };
+    };*/
   }
 
   render() {
     return(
-      <AccountList 
-        accounts={ this.state.accounts }
-        accountActions={ this.accountActions } 
-      />
+      <AccountList accounts={ this.state.accounts } store={ this.store }/>
     );
   }
   

@@ -1,8 +1,10 @@
 import React from 'react';
 import AccountList from './';
-import renderer from 'react-test-renderer';
+import Enzyme, {shallow} from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
 const testProps = {};
+Enzyme.configure({adapter: new Adapter()});
 
 beforeEach(() => {
   testProps.accounts = {
@@ -10,20 +12,16 @@ beforeEach(() => {
     '2': {id: '2', business: 'test', date: new Date().toString(), website: 'test.com', name: 'test'},
     '3': {id: '3', business: 'test', date: new Date().toString(), website: 'test.com', name: 'test'}
   };
-
-  testProps.accountActions = {
-    lookupPosts: jest.fn(() => ('test paragraph'))
-  };
 });
 
 describe('AccountList', () => {
   it('renders correctly', () => {
-    const tree = renderer
-      .create(<AccountList {...testProps} />)
-      .toJSON();
+    const wrapper = shallow(
+      <AccountList {...testProps} />
+    );
 
-    expect(tree).toMatchSnapshot();
-    expect(tree.children.length).toBe(3);
-    console.log(tree); //eslint-disable-line no-console
+    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find('AccountContainer').length).toBe(3);
+    console.log(wrapper); //eslint-disable-line no-console
   });
 });
