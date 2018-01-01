@@ -60,5 +60,7 @@ typings/
 # ignore vscode settings
 .vscode
 
-# ignore build output
+# ignore automated output
 public/
+coverage/
+dist/

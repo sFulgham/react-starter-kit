@@ -9,9 +9,14 @@
   "scripts": {
     "lint": "esw src --color",
     "unit-test": "jest --watch --color",
+    "test-coverage": "jest --coverage",
     "build-css": "node-sass --include-path scss src/assets/scss/global.scss public/css/main.css",
-    "dev-build": "nodemon --exec babel-node build/server.js",
-    "webpack": "webpack -wd"
+    "start:dev": "NODE_ENV=development nodemon --exec babel-node build/server.js",
+    "webpack": "webpack -wd",
+    "webpack:prod": "webpack -p",
+    "prod-build": "babel build -d dist --copy-files",
+    "start:prod": "NODE_ENV=production nodemon --exec babel-node dist/server.js -i max",
+    "logical-processors": "sysctl -n hw.ncpu"
   },
   "devDependencies": {
     "@types/jest": "^22.0.0",
@@ -34,7 +39,7 @@
   "babel": {
     "presets": [
       "react",
-      "env",
+      ["env", { "targets": { "node": "current" }}],
       "latest"
     ]
   },
