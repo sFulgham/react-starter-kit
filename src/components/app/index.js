@@ -6,20 +6,27 @@ class App extends Component {
   constructor(props){
     super(props);
 
-    this.state = this.props.store.getState();
     this.store = this.props.store;
+    this.state = this.store.getState();
+    this.onStoreChange = this.onStoreChange.bind(this);
   }
 
-  updateState(filteredAccounts) {
-    this.setState({
-      accounts: filteredAccounts
-    });
+  onStoreChange(){
+    this.setState(this.store.getState());
+  }
+
+  componentDidMount(){
+    this.subscriptionId = this.store.subscribe(this.onStoreChange);
+  }
+
+  componentWillUnmount(){
+    this.store.unsubscribe(this.subscriptionId);
   }
 
   render() {
     return(
       <div>
-        <SearchBar store={ this.store } onUpdate={this.updateState.bind(this)}/>
+        <SearchBar store={ this.store }/>
         <AccountList accounts={ this.state.accounts } store={ this.store }/>
       </div>
     );

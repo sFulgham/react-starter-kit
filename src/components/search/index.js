@@ -15,7 +15,7 @@ class Search extends Component {
   }
 
   success() {
-    this.props.store.commitSearch(this.state.searchVal, this.props.onUpdate);
+    this.props.store.commitSearch(this.state.searchVal);
   }
 
   handleSearch(evt) {

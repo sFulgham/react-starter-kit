@@ -10,6 +10,8 @@ class StateApi {
       searchResult: ''
     };
 
+    this.subscriptions = {};
+    this.lastSubscriptionId = 0;
     this.payload = payload;
 
     if(payload.accounts){
@@ -28,6 +30,25 @@ class StateApi {
 
   getPostById(id){
     return this.data.posts[id].paragraph;
+  }
+
+  subscribe(cb){
+    this.lastSubscriptionId++;
+    this.subscriptions[this.lastSubscriptionId] = cb;
+    return this.lastSubscriptionId;
+  }
+
+  unsubscribe(id){
+    delete this.subscriptions[id];
+  }
+
+  notifySubscribers(){
+    Object.values(this.subscriptions).forEach(cb => cb());
+  }
+
+  changeState(newState){
+    this.data[newState.change] = newState.state;
+    this.notifySubscribers();
   }
 
   filterList(){
@@ -59,10 +80,15 @@ class StateApi {
     return accountsApi.getAccounts();
   }
 
-  commitSearch(searchResult, updateState){
+  commitSearch(searchResult){
     this.data.searchResult = searchResult;
-    updateState(this.filterList());
+    let accounts = this.filterList();
+    this.changeState({
+      change: 'accounts',
+      state: accounts
+    });
   }
+
 }
 
 export default StateApi;
