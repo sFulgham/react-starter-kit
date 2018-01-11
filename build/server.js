@@ -8,6 +8,7 @@ import Faker from '../src/assets/jsLibs/mock.data';
 const faker = new Faker();
 const app = express();
 
+
 app.use(express.static('public'));
 
 app.get('/', async (req, res) => {
